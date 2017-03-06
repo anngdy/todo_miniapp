@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @list.name.capitalize! %></h2>
+
+<div class="list_tasks">
+<p>
+  <strong>Owner:</strong>
+  <%= @list.user.username %>
+</p>
+
+<p>
+  <strong>Privacy:</strong>
+  <%= @list.privacy %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @list.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @list.status %>
+</p>
+
+  <div class="container">
+    <% if @tasks.empty? %>
+      <div class="alert-warning">There are no tasks in this list!</div>
+    <% else %>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date complete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tasks.each do |task| %>
+            <tr>
+              <td>
+                <strong>
+                  <%= task.title %>
+                </strong>
+              </td>
+              <td class="text-info">
+                <%= task.content %>
+              </td>
+              <td class="text-success">
+                <%= task.date_completed %>
+              </td>
+              <td>
+                <%= content_tag :a, '', href: complete_task_list_task_path(list_id: @list.id, id: task.id), title: 'Complete Task', class: 'fa fa-calendar-check-o' %> 
+              </td>
+              <td><%= content_tag :a, '', href: edit_list_task_path(list_id: @list.id), title: 'Edit Task', class: 'fa fa-pencil' %></td>
+              <td><%= content_tag :a, '', href: destroy_task_path(list_id: @list.id, id: task.id), title: 'Delete Task', data: { confirm: 'Are you sure?' }, class: 'fa fa-times text-danger' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+
+  <div class="foot_links">
+    <%= link_to 'Add new task', new_list_task_path(list_id: @list.id) %> |
+    <%= link_to 'Edit list', edit_list_path %> |
+    <%= link_to 'Back', lists_path %>    
+  </div>
+
+
+</div>
+
+
+
+

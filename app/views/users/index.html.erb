@@ -1,0 +1,18 @@
+<h2>Welcome</h2>
+	<div class="index_links" id="index_links">
+		<table cellpadding="0" cellspacing="0" class="table">
+		  <thead>
+		    <tr>
+				<td> <%= content_tag :a, '', href: new_list_path, title: 'Create New List', class: 'fa fa-plus-square-o fa-3x', id: 'page_links' %> </td> 
+
+				<td> <%= content_tag :a, '', href: lists_path, title: 'My Lists', class: 'fa fa-tasks fa-3x', id: 'page_links' %> </td> 
+
+				<td> <%= content_tag :a, '', href: public_lists_path, title: 'Public Lists', class: 'fa fa-list fa-3x', id: 'page_links' %> </td> 
+
+				<td> <%= content_tag :a, '', href: bookmarks_path, title: 'My Bookmarks', class: 'fa fa-bookmark fa-3x', id: 'page_links' %> </td> 
+
+				<td> <%= content_tag :a, '', href: destroy_user_session_path, title: 'Logout', class: 'fa fa-sign-out fa-3x', id: 'page_links' %> </td> 
+			</tr>
+		  </thead>
+		</table>
+	</div>

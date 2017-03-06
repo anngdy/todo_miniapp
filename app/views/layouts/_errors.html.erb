@@ -1,0 +1,15 @@
+<% errors.each do |key, value| %>
+  <div class="alert alert-<%= key %>">
+    <% if value.is_a?(Array) %>
+      <ul>
+        <% value.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <%= value %>
+    <% end %>
+  </div>
+<% end %>

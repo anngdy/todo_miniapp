@@ -1,0 +1,34 @@
+<%= form_for(@list) do |f| %>
+  <% if @list.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h4>
+
+      <ul>
+      <% @list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="rgl_fld">
+    <%= f.text_field :name, placeholder: 'name *' %>
+  </div>
+
+  <div class="rgl_fld">
+    <%= f.select :privacy, ([["list privacy *",""], ["", ""], ["Public", "public"], ["Private", "private"]]) %>
+  </div>
+
+  <div class="rgl_fld">
+    <%= f.select :status, ([["list status *",""], ["", ""], ["Open", "open"], ["Closed", "closed"]]) %>
+  </div>
+  
+  <div class="actions">
+    <button class="button button-block">UPDATE LIST</button>
+  </div>
+
+  <div class="link">
+    <%= link_to 'Cancel', lists_path %>
+  </div>
+
+<% end %>

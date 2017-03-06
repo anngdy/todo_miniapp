@@ -1,0 +1,19 @@
+<%= simple_form_for([@list, @list.tasks.build]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="rgl_fld">
+    <%= f.text_field :title, placeholder: 'title *' %>
+  </div>
+  <div class="rgl_fld">
+    <%= f.text_field :content, placeholder: 'content *' %>
+  </div>
+
+  <div class="form-actions">
+    <button class="button button-block">ADD TASK</button>
+  </div>
+
+  <div class="link">
+    <%= link_to 'Cancel', @list %>
+  </div>
+  
+<% end %>

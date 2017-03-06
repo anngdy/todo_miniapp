@@ -1,0 +1,16 @@
+<%= simple_form_for(@bookmark) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="rgl_fld">
+    <%= f.fields_for :list do |list| %>
+      <%= list.collection_select :id, List.all, :id, :name, prompt:true %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <button class="button button-block">ADD BOOKMARK</button>
+  </div>
+
+
+<%= link_to 'Cancel', bookmarks_path %>
+<% end %>

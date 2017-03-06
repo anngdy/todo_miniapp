@@ -1,0 +1,1 @@
+insert into lists(id, user_id, name, privacy, description, status, created_at, updated_at) values (4, 1, 'test4', 'public', 'this is a public list again', 'open', '2017-03-05 22:24:03.326326', '2017-03-05 22:24:03.326326');
