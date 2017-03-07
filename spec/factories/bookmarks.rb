@@ -1,6 +1,8 @@
 FactoryGirl.define do
-  factory :bookmark do
-    list nil
-    user nil
+  factory :bookmark, class: 'Bookmark' do |bookmark|
+  	sequence(:id)
+
+  	bookmark.list_id nil
+  	bookmark.user_id nil
   end
 end
