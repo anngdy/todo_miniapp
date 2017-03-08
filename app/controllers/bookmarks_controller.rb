@@ -6,9 +6,9 @@ class BookmarksController < ApplicationController
   end
 
     def new
-    @bookmark = Bookmark.new
     user = User.where.not(id: current_user.id)
     @list = List.where(user_id: user).where(privacy: 'public')
+    @bookmark = Bookmark.new
   end
 
   def create

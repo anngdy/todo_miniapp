@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :user, class: 'User' do |user|
+  	sequence(:id)
+  	
   	sequence(:name) do |name|
   		'user#{name}_name'
   	end

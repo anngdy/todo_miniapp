@@ -5,7 +5,6 @@ class List < ActiveRecord::Base
 	validates :user, presence: true
 	validates :name, presence: true
 	validates :privacy, presence: true
-	#validates :status, presence: true
 
 	before_save :set_status_open
 
